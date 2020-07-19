@@ -41,13 +41,13 @@ export const Layout = (props: Props) => {
 
   return (
     <Content>
-      <header>
+      <header style={{ color: 'var(--textNormal)', }}>
         <HeaderTitle>
           <StyledLink to={`/`}>{title}</StyledLink>
         </HeaderTitle>
       </header>
       <main>{children}</main>
-      <footer>
+      <footer style={{ color: 'var(--textNormal)', }}>
         © {new Date().getFullYear()}, Built with
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>

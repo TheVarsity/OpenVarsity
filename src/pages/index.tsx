@@ -7,6 +7,7 @@ import { FadeLink } from "../components/link"
 import { SEO } from "../components/seo"
 import { MarkdownRemark } from "../graphql-types"
 import { rhythm } from "../utils/typography"
+import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 
 const StyledLink = styled(FadeLink)`
   box-shadow: none;
@@ -53,7 +54,7 @@ const BlogIndex = (props: Props) => {
         title="All posts"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       />
-      <Bio />
+      <Bio author={{ id: "Varsity Publications", "twitter": "TheVarsity", picture: "/gatsby-icon.png/", bio: "" }} />
       {posts.map(({ node }: { node: MarkdownRemark }) => {
         const frontmatter = node!.frontmatter!
         const fields = node!.fields!
@@ -66,8 +67,8 @@ const BlogIndex = (props: Props) => {
             <Title>
               <StyledLink to={slug}>{title}</StyledLink>
             </Title>
-            <small>{frontmatter.date}</small>
-            <p
+            <small style={{ color: 'var(--textNormal)', transition: 'color 0.2s ease-out, background 0.2s ease-out' }} >{frontmatter.date}</small>
+            <p style={{ color: 'var(--textNormal)', transition: 'color 0.2s ease-out, background 0.2s ease-out' }}
               dangerouslySetInnerHTML={{
                 __html: frontmatter.description || excerpt,
               }}
@@ -75,6 +76,18 @@ const BlogIndex = (props: Props) => {
           </div>
         )
       })}
+      <ThemeToggler>
+        {({ theme, toggleTheme }) => (
+          <label style={{ color: 'var(--textNormal)', transition: 'color 0.2s ease-out, background 0.2s ease-out' }} >
+            <input
+              type="checkbox"
+              onChange={e => toggleTheme(e.target.checked ? 'dark' : 'light')}
+              checked={theme === 'dark'}
+            />{' '}
+            Dark mode
+          </label>
+        )}
+      </ThemeToggler>
     </Layout>
   )
 }

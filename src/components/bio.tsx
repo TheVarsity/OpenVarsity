@@ -29,10 +29,22 @@ const Avatar = styled(GatsbyImage)`
   min-width: 50px;
 `
 
-export const Bio = () => {
+type AuthorType = {
+  id: string,
+  bio: string
+  twitter: string
+  picture: string
+}
+
+
+
+export const Bio: React.FC<{ author: AuthorType }> = ({ author }) => {
+
+  const queryString = ``
+
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      avatar: file(absolutePath: { regex: "/gatsby-icon.png/" }) {
         childImageSharp {
           fixed(width: 50, height: 50) {
             ...GatsbyImageSharpFixed
@@ -50,21 +62,24 @@ export const Bio = () => {
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
+  // const { author, social } = data.site.siteMetadata
+  const { id, bio, twitter } = author
 
   return (
     <Content>
       <Avatar
         fixed={data.avatar.childImageSharp.fixed}
-        alt={author}
+        alt={id}
         imgStyle={{ borderRadius: "50%" }}
       />
       <p>
-        Written by <strong>{author}</strong> who lives and works in San
-        Francisco building useful things.
+        <p>
+          Written by <strong>{id}</strong> {bio}
+        </p>
         {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
+
+        <a href={`https://twitter.com/${twitter}`}>
+          You should follow them on Twitter
         </a>
       </p>
     </Content>

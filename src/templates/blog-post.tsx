@@ -37,6 +37,7 @@ const BlogPostTemplate = (props: Props) => {
   const post = data.markdownRemark!
   const excerpt = post.excerpt!
   const frontmatter = post.frontmatter!
+  const { author } = frontmatter
   const html = post.html!
   const siteTitle = data.site!.siteMetadata!.title!
   const { previous, next } = props.pageContext
@@ -48,10 +49,10 @@ const BlogPostTemplate = (props: Props) => {
         description={frontmatter.description || excerpt}
       />
       <h1>{post.frontmatter!.title}</h1>
-      <Date>{frontmatter.date}</Date>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <Date>{frontmatter.date} - {author.id}</Date>
+      <div style={{ color: 'var(--textNormal)', }} dangerouslySetInnerHTML={{ __html: html }} />
       <Divider />
-      <Bio />
+      <Bio author={author} />
       <PostNavigator>
         <li>
           {previous && (
@@ -90,6 +91,11 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        author {
+          id
+          bio
+          twitter
+      }
       }
     }
   }

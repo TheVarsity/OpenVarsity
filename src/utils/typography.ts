@@ -1,11 +1,30 @@
+import "../styles/global.css"
+
 import { CSSObject } from "styled-components"
 import Typography from "typography"
 import Wordpress2016 from "typography-theme-wordpress-2016"
 
 Wordpress2016.overrideThemeStyles = () => {
   return {
-    "a.gatsby-resp-image-link": {
-      boxShadow: `none`,
+    h1: {
+      color: "var(--textTitle)",
+    },
+    p: {
+      color: "var(--textNormal)",
+    },
+    a: {
+      color: "var(--textLink)",
+    },
+    // gatsby-remark-autolink-headers - don't underline when hidden
+    "a.anchor": {
+      boxShadow: "none",
+    },
+    // gatsby-remark-autolink-headers - use theme colours for the link icon
+    'a.anchor svg[aria-hidden="true"]': {
+      stroke: "var(--textLink)",
+    },
+    hr: {
+      background: "var(--hr)",
     },
   }
 }
