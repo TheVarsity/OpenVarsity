@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Open Varsity`,
     name: `Varsity Publications Inc`,
-    siteUrl: `https://novela.narative.co`,
-    description: `This is my description that will be used in the meta tags and important for search results`,
+    siteUrl: `https://open-varsity.netlify.app/`,
+    description: `An engineering blog by the Varsity Publications team, detailing how a University Newspaper is build and maintained.`,
     hero: {
       heading: `Welcome to Open Varsity, An engineering blog.`,
       maxWidth: 652,
@@ -19,7 +19,7 @@ module.exports = {
       },
       {
         name: `linkedin`,
-        url: `https://www.linkedin.com/company/narative/`,
+        url: `https://www.linkedin.com/company/varsity-publications-inc./`,
       },
       // {
       //   name: `url`,
@@ -44,13 +44,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Novela by Narative`,
-        short_name: `Novela`,
+        name: `Open Varsity`,
+        short_name: `Open Varsity`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#fff`,
         display: `standalone`,
-        icon: `src/assets/favicon.png`,
+        icon: `src/assets/varsityLogo.png`,
       },
     },
     {
