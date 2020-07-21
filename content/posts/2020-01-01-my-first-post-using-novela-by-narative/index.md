@@ -1,130 +1,35 @@
 ---
-title: Template Post
-author: Rahul Tarak , Thiago Costa
-date: 2019-04-30
-hero: ./images/hero.jpg
-excerpt: With the growing community interest in Gatsby, we hope to create more resources that make it easier for anyone to grasp the power of this incredible tool.
+title: What is Open Varstiy?
+author: Rahul Tarak
+date: '2020-07-21'
+excerpt: What is Open Varsity? and Why does it Exists?
+hero: images/hello_world-wallpaper-1920x1080.jpg
 ---
+This is the first blog post, on Open Varsity, The Varsity Publications new engineering blog. Here, I want to go over why I made Open Varsity and what content you can expect from this blog.
 
-My first post using `@narative/gatsby-theme-novela`. Novela is built by the team at [Narative](https://narative.co), and built for everyone that loves the web.
+## What is Open Varsity?
 
-## Headers
+The goal for Open Varsity is to have a platform to communicate the challenges in building and maintaining Canada's largest student newspaper. A way to document the problems we face, and the solutions we find to them, this serves two purposes. It helps other people facing the same problems use our solutions and acts as a form of documentation for future varsity engineering teams.
 
-# H1
+## Why make Open Varsity?
 
-It is recommended to NOT use H1s as it is reserved for the article heading. Any H1 is set as an H2.
+So I joined as the Varsity's backend engineer in June, 2020. (Yes, I got a job in the high of the pandemic, I am as surprised as others) When I joined I realized the organization in the past years had been very closed off in terms of its engineer, in terms of opening up how things are made or even internally documenting the process. I wanted to change that, make the organization more open, showcasing our code and our solutions. I also wanted to push for a strong documentation of not only the code itself, but the thought process of the engineering team and felt this would be a great way to do so.
 
-## H2
+While talking to a friend, I also realized there was a lot of confusion about the kind of engineering required by a student newspaper, and he suggested talking about it.
 
-### H3
+## What to expect?
 
-#### H4
+Personally, I am not sure what my plan for this blog is entirely except that I want it to exist, I do have a few ideas of things I think could be interesting. One idea I am excited about is a series of blogs detailing every time I crash the website, how I managed to do it and how I resolved it. I also want to have in some form, a development blog, in the sense that I talk through the process of building something, not necessarily as a tutorial but rather our thought process.
 
-##### H5
+**Finally due to the pandemic, definitely expect a lot of coverage about how a student newspaper transitions a lot of its print media into digital content.** The first of this would be the UofT student handbook, normally this is printed book given to every freshmen in their orientation kit, but due to covid we are transitioning it into a digital handbook.
 
-###### H6
 
-## Emphasis
+## How this blog was made?
 
-Emphasis, aka italics, with _asterisks_ or _underscores_.
+A lot of the engineering behind a student newspaper has to do with Content Management, and I want to throw together a blog quickly but not use a legacy content management system like WordPress. So I took the challenge to learn Gatsby and use Netlify CMS, after messing around with Gatsby and JAMStack for a bit, I realized it would be better if I used a Gatsby starter.
 
-Strong emphasis, aka bold, with **asterisks** or **underscores**.
+I will make another blog post about how I was orginally building out the blog. How I started learning Gatsby, what problems I ran it, what I liked. Then how I actually build this blog out and about how amazing Gatsby Component Shadowing is
 
-Combined emphasis with **asterisks and _underscores_**.
-
-Strikethrough uses two tildes. ~~Scratch this.~~
-
-## Lists
-
-1. First ordered list item
-2. Another item
-3. Actual numbers don't matter, just that it's a number
-
-- Unordered list can use asterisks
-
-* Or minuses
-
-- Or pluses
-
-## Links
-
-[I'm an inline-style link](https://www.google.com)
-
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
-
-[I'm a reference-style link][arbitrary case-insensitive reference text]
-
-[I'm a relative reference to a repository file](../blob/master/LICENSE)
-
-[You can use numbers for reference-style link definitions][1]
-
-Or leave it empty and use the [link text itself].
-
-URLs and URLs in angle brackets will automatically get turned into links.
-http://www.example.com or <http://www.example.com> and sometimes
-example.com (but not on Github, for example).
-
-Some text to show that the reference links can follow later.
-
-[arbitrary case-insensitive reference text]: https://www.mozilla.org
-[1]: http://slashdot.org
-[link text itself]: http://www.reddit.com
-
-## Images
-
-<div className="Image__Small">
-  <img
-    src="./images/article-image-2.jpg"
-    title="Logo Title Text 1"
-    alt="Alt text"
-  />
-</div>
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-
-## Code and Syntax Highlighting
-
-```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
+```bash
+gatsby new novela-site https://github.com/narative/gatsby-starter-novela
 ```
-
-```
-No language indicated, so no syntax highlighting.
-But let's throw in a <b>tag</b>.
-```
-
-### JSX
-
-```jsx
-import React from "react";
-import { ThemeProvider } from "theme-ui";
-import theme from "./theme";
-
-export default (props) => (
-  <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
-);
-```
-
-## Blockquotes
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing.
-
-> Blockquotes are very handy in email to emulate reply text.
-> This line is part of the same quote.
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-
-## Horizontal Rule
-
-Horizontal Rule
-
-Three or more...
-
----
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-
----
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
