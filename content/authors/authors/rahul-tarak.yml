@@ -5,7 +5,6 @@ bio: >
 featured: true
 avatar: ./avatars/rahul_pic.jpg
 social:
-  - url: 'https://twitter.com/CryogenicPlanet'
-  - url: 'https://github.com/CryogenicPlanet'
-  - 'https://www.linkedin.com/in/rahul-tarak/'
-  - 'https://cryogenicplanet.tech/'
+  - url: "https://twitter.com/CryogenicPlanet"
+  - url: "https://github.com/CryogenicPlanet"
+  - url: "https://www.linkedin.com/in/rahul-tarak/"
