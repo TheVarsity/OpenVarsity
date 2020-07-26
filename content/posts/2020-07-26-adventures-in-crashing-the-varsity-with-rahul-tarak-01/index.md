@@ -189,4 +189,4 @@ I am was definitely not expecting to make the first post about this, but I guess
 
 This bug definitely wasn't something fun to debug yesterday, but diagnosing the bug with GPT-3 was amazing, and it was such a relief to solve the issue.
 
-Here are more random snippets of my conversation with GPT-3 about this.
+Here are more random snippets of my conversation with GPT-3 about this [here](https://gist.github.com/CryogenicPlanet/81570ac097d42b35ee206de9bf3db02c) or https://gist.github.com/CryogenicPlanet/81570ac097d42b35ee206de9bf3db02c
