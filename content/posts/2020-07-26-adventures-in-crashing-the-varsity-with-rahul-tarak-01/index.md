@@ -10,39 +10,39 @@ hero: images/hero.jpg
 
 This is the first blog post in the series I call Adventures in Crashing The Varsity with Rahul Tarak, the idea for this series and the fact that I crashed the main site twice in my first month, is actually what inspired me to make this blog.
 
-So, what is this series? **No it is not an incident report**, it is meant to be much less format and more detailed, not focused on revealing the solution but rather my though process and every step along the way.
+So, what is this series? **No, it is not an incident report,** it is meant to be much less format and more detailed, not focused on revealing the solution but rather my thought process and every step along the way.
 
-I was actually planning on starting this series with reflecting on those two crashes I mentioned earlier, but yesterday night I got a ping about <https://spine.thevarsity.ca/> being broken on Chrome, so we are going to start there. This crash is not exactly my fault, but I expect most will be so this series will truly focus in my adventures in crashing The Varsity.
+I was actually planning on starting this series with reflecting on those two crashes I mentioned earlier, but yesterday night I got a ping about https://spine.thevarsity.ca/ being broken on Chrome, so we are going to start there. This crash is not exactly my fault, but I expect most will be so this series will truly focus on my adventures in crashing The Varsity.
 
 ## The crash
 
 **ERR_SSL_PROTOCOL_ERROR**
 
-Let me give some context about the varsity's engineering, while there have been some great engineering on the team. Varsity's engineering team built its infrastructure like an engineering team, this is one of the things I wanted to change.
+Let me give some context about the varsity's engineering, while there have been some great engineering on the team. Varsity's engineering team built its infrastructure like an engineering team; this is one of the things I wanted to change.
 So varsity did not have any uptime monitoring, and I use firefox as my main browser, this means I did not catch the error and don't know exactly when the error occurred.
 
 ### Interesting Things about this crash
 
-The outage was only on Chromium, but its weirder than that. It worked on firefox, safari and firefox mobile, but it even worked on chrome if you went to another link before opening the Spine link. If you went to https://form.thevarsity.ca/ before https://spine.thevarsity.ca/ it worked perfectly, which was extremely odd.
-Also interestingly enough, there was no server side changes made to these configurations before the error in at least a month.
+The outage was only on Chromium, but its weirder than that. It worked on firefox, safari and firefox mobile, but it even worked on chrome if you went to another link before opening the Spine link. If you went to https://form.thevarsity.ca/ before https://spine.thevarsity.ca/, it worked perfectly, which was extremely odd.
+Also interestingly enough, there were no server-side changes made to these configurations before the error in at least a month.
 
-I didn't really care to check IE, also I won't its not worth the trouble.
+I didn't really care to check IE. Also, I won't it's not worth the trouble.
 
 ## Debugging
 
-This crash happened at 2am for me, so it was pretty late, but as the only backend engineering I had to work through fixing the error.
+This crash happened at 2 am for me, so it was pretty late, but as the only backend engineering, I had to work through fixing the error.
 
-As I had only joined about two months ago, and the varsity has a huge legacy code base over the last 15 years, I am not fully comfortable with the entire code base. But from my previous experience, in crashing the entire site I had picked up how to debug some **nginx** errors.
+As I had only joined about two months ago, and the varsity has a huge legacy codebase over the last 15 years, I am not fully comfortable with the entire code base. But from my previous experience, in crashing the entire site, I had picked up how to debug some **nginx** errors.
 
-So I went through the standard googling a bunch of errors and experimenting with the code base and I don't want to spend much time talking about that because the final way I solved the issue is far more interesting. Though, here are some semi-related issues I found [[1]](https://community.letsencrypt.org/t/err-ssl-protocol-error-only-in-chrome-and-mobile-browser/72014) and [[2]](https://community.letsencrypt.org/t/nginx-err-ssl-protocol-error/4143).
+So I went through the standard googling a bunch of errors and experimenting with the code base, and I don't want to spend much time talking about that because the final way I solved the issue is far more interesting. Though, here are some semi-related issues I found [[1]](https://community.letsencrypt.org/t/err-ssl-protocol-error-only-in-chrome-and-mobile-browser/72014) and [[2]](https://community.letsencrypt.org/t/nginx-err-ssl-protocol-error/4143).
 
-None of these solutions really helped but this felt like one of those DNS errors that would just go away, so after working through the night till about 8 am with no results I crashed.
+None of these solutions really helped, but this felt like one of those DNS errors that would just go away, so after working through the night till about 8 am with no results, I crashed.
 
-During the debug session, I was talking to a friend about this issue and we were talking about how we need better tools to diagnose DNS and SSL issues.
+During the debug session, I was talking to a friend about this issue, and we were talking about how we need better tools to diagnose DNS and SSL issues.
 
 ## Debugging with GPT-3
 
-All credit goes to my friend, [@itsarnavb](https://twitter.com/itsarnavb), for the idea to debug with GPT-3, we literally asked it the question and it helped us diagnose the issue, I want to walk through parts of that conversation.
+All credit goes to my friend, [@itsarnavb](https://twitter.com/itsarnavb), for the idea to debug with GPT-3, we literally asked it the question, and it helped us diagnose the issue, I want to walk through parts of that conversation.
 
 > A Conversation with Artificial Intelligence
 
@@ -153,9 +153,9 @@ AI: Stunnel is a program that can be used to encapsulate TCP connections inside 
 
 ### Dissecting the conversation
 
-First, wow that was literally amazing! What OpenAI has done with GPT-3 is truly incredibly, the way this can be used to diagnose errors in the future is going to be amazing.
+First, wow, that was literally amazing! What OpenAI has done with GPT-3 is truly incredible, the way this can be used to diagnose errors in the future is going to be amazing.
 
-Let's start by saying I am not a networking expert my any means, and I think the GPT-3 answer here is slightly wrong. But is ability to cut through so much networking literature, and give extremely useful ideas is amazing. While we were diagnose, we were changing the gpt-3 answer slightly, and continuing and it was constantly able to generate amazing results.
+Let's start by saying I am not a networking expert by any means, and I think the GPT-3 answer here is slightly wrong. But its ability to cut through so much networking literature, and give extremely useful ideas is amazing. While we were diagnosing, we were changing the gpt-3 answer slightly, and continuing and it was constantly able to generate amazing results.
 
 The idea of the error being something to do with TLS version was spot on, this is what caused the problem with Chrome and not other browsers. Its comment about supporting TLSv1 and TLSv1.1 was perfect. The solution with Stunnel was incorrect but it was also missing a lot of context about our system.
 
@@ -163,14 +163,14 @@ The idea of the error being something to do with TLS version was spot on, this i
 
 Let me start by saying I have no idea what actually caused the site to crash, what changed to prevent it from working.
 
-But in the process of debugging, I tired changing the configurations files a lot, at the beginning of this process I made a duplicate file of the spine as a backup, but like the idiot I am, this file was in the sites-enabled folder instead of the sites-available folder, which was preventing me from fixing the TLS issue.
+But in the process of debugging, I tried changing the configurations files a lot, at the beginning of this process I made a duplicate file of the spine as a backup, but like the idiot I am, this file was in the sites-enabled folder instead of the sites-available folder, which was preventing me from fixing the TLS issue.
 
 I am assuming if I didn't make this mistake, I would have solved the issue in my debugging and messing around phase.
 But because of this mistake, I didn't and here GPT-3 came in clutch. It helped me look at the exact bug of the TLS version and also gave me the diagnostic commands in `openssl` and `nmap` to detect TLS versions.
 
 ## Adding Real Time Monitoring
 
-So this crash immediately brought up the need for real time monitoring, so realizing this was issue I immediately added pagerduty, and tried several real time monitoring solutions
+So this crash immediately brought up the need for real time monitoring, so realizing this was an issue I immediately added pagerduty, and tried several real time monitoring solutions
 
 A few of them are linked below(some of these pages might expire with trials ending)
 
