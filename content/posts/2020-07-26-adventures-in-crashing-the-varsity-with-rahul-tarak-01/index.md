@@ -174,14 +174,12 @@ So this crash immediately brought up the need for real time monitoring, so reali
 
 A few of them are linked below(some of these pages might expire with trials ending)
 
-- Apex Ping,
-  http://status.ping.apex.sh/ffec0775-28fa-4b12-b44c-d2617700578b
-- Fresh Ping
-  https://statuspage.freshping.io/46090-TheVarsityPublications
-- Uptime Robot
-  https://stats.uptimerobot.com/E6LKNcWg40
-- Uptime.com
-  https://uptime.com/s/varsity
+- [Apex Ping](http://status.ping.apex.sh/ffec0775-28fa-4b12-b44c-d2617700578b)
+- [Fresh Ping](https://statuspage.freshping.io/46090-TheVarsityPublications)
+- [Uptime Robot](https://stats.uptimerobot.com/E6LKNcWg40)
+- [Uptime.com](https://uptime.com/s/varsity)
+
+Most likely setting on Freshping but want to Acknowledge Apex Ping for giving us a 25% discount for being a student run organization, that was super cool of them.
 
 ## Conclusion
 
@@ -189,4 +187,4 @@ I am was definitely not expecting to make the first post about this, but I guess
 
 This bug definitely wasn't something fun to debug yesterday, but diagnosing the bug with GPT-3 was amazing, and it was such a relief to solve the issue.
 
-Here are more random snippets of my conversation with GPT-3 about this [here](https://gist.github.com/CryogenicPlanet/81570ac097d42b35ee206de9bf3db02c) or https://gist.github.com/CryogenicPlanet/81570ac097d42b35ee206de9bf3db02c
+Here are more random snippets of my conversation with GPT-3 about this [here](https://gist.github.com/CryogenicPlanet/81570ac097d42b35ee206de9bf3db02c)
