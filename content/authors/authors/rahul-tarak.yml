@@ -1,8 +1,11 @@
 name: Rahul Tarak
-bio: |
-  Hi, I am Varsity's Backend Developer(2020-21) and I set up this blog to document the process of building and maintaining a University Newspaper.
+bio: >
+  Hi, I am Varsity's Backend Developer(2020-21) and I set up this blog to
+  document the process of building and maintaining a University Newspaper.
+featured: true
 avatar: ./avatars/rahul_pic.jpg
 social:
-  - url: https://twitter.com/CryogenicPlanet
-  - url: https://github.com/CryogenicPlanet
-featured: true
+  - url: 'https://twitter.com/CryogenicPlanet'
+  - url: 'https://github.com/CryogenicPlanet'
+  - 'https://www.linkedin.com/in/rahul-tarak/'
+  - 'https://cryogenicplanet.tech/'
