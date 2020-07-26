@@ -1,5 +1,4 @@
 import React from "react";
-import { isMobile, isTablet } from "react-device-detect";
 
 /**
  * Paste in your SVG logo and return it from this component.
@@ -13,7 +12,7 @@ export default function Logo({ fill }) {
     <svg
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
-      width={isMobile ? "25vh" : isTablet ? "40vh" : "60vh"}
+      width="40vw"
       max-width="60vh"
       height="100%"
       viewBox="0 0 768.000000 113.000000"
