@@ -1,10 +1,10 @@
 ---
-title: Adventures in Crashing The Varsity with Rahul Tarak | 01
+title: Solving A SSL Error with Artificial Intelligence | Adventures in Crashing The Varsity with Rahul Tarak Part 1
 author: Rahul Tarak
 date: "2020-07-26"
-excerpt:
+excerpt: Solving SSL/DNS error using Artificial Intelligence |
   A series where I go through every incident of me crashing the site, how I
-  managed to do it, what I learnt from it and what I changed
+  managed to do it, what I learnt from it and what I changed.
 hero: images/hero.jpg
 ---
 
@@ -43,6 +43,8 @@ During the debug session, I was talking to a friend about this issue, and we wer
 ## Debugging with GPT-3
 
 All credit goes to my friend, [@itsarnavb](https://twitter.com/itsarnavb), for the idea to debug with GPT-3, we literally asked it the question, and it helped us diagnose the issue, I want to walk through parts of that conversation.
+
+[GPT-3](https://www.youtube.com/watch?v=_8yVOC4ciXc) is OpenAI's newest natural language model. This model follows an architecture of a transformer, that is in plain english, you give it text and it will write the next word out. The text you give it, is called a prompt, in the following conversation all prompts are marked in bold **_like this_**, the AI will generate its response according to its prompt. With models like GPT-3, you can also change the machine's response, and have it regenerate with a new context. We used this for diagnostic purposes, but it is not highlighted in the conversation below.
 
 > A Conversation with Artificial Intelligence
 
