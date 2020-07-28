@@ -1,9 +1,9 @@
 ---
-title: Adventures in Crashing The Varsity with Rahul Tarak | 01
+title: Solving A SSL Error with Artificial Intelligence | Adventures in Crashing The Varsity with Rahul Tarak Part 1
 author: Rahul Tarak
 date: "2020-07-26"
 excerpt: >-
-  A series where I go through every incident of me crashing the site, how I
+  Solving SSL/DNS error using Artificial Intelligence | A series where I go through every incident of me crashing the site, how I
   managed to do it, what I learned from it, and what I changed
 hero: images/hero.jpg
 ---
