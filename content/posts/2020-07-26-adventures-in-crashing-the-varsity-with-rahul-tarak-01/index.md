@@ -1,5 +1,5 @@
 ---
-title: Adventures in crashing The Varsity with Rahul Tarak | 01
+title: Adventures in Crashing The Varsity with Rahul Tarak | 01
 author: Rahul Tarak
 date: "2020-07-26"
 excerpt: >-
