@@ -4,7 +4,7 @@ author: Rahul Tarak
 date: '2020-07-26'
 excerpt: >-
   A series where I go through every incident of me crashing the site, how I
-  managed to do it, what I learnt from it, and what I changed
+  managed to do it, what I learned from it, and what I changed
 hero: images/hero.jpg
 ---
 This is the first blog post in the series I call *Adventures in Crashing* The Varsity *with Rahul Tarak*. The idea for this series is the fact that I crashed the main site twice in my first month, which is actually what inspired me to make this blog.
