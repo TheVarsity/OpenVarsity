@@ -1,23 +1,24 @@
 ---
 title: Adventures in crashing The Varsity with Rahul Tarak | 01
 author: Rahul Tarak
-date: '2020-07-26'
+date: "2020-07-26"
 excerpt: >-
   A series where I go through every incident of me crashing the site, how I
   managed to do it, what I learned from it, and what I changed
 hero: images/hero.jpg
 ---
-This is the first blog post in the series I call *Adventures in Crashing* The Varsity *with Rahul Tarak*. The idea for this series is the fact that I crashed the main site twice in my first month, which is actually what inspired me to make this blog.
+
+This is the first blog post in the series I call _Adventures in Crashing_ The Varsity _with Rahul Tarak_. The idea for this series is the fact that I crashed the main site twice in my first month, which is actually what inspired me to make this blog.
 
 So, what is this series? **No it is not an incident report.** It is meant to be much less formatted and more detailed, not focused on revealing the solution but rather my thought process and every step along the way.
 
-I was actually planning on starting this series with reflecting on those two crashes I mentioned earlier, but yesterday night I got a ping about <https://spine.thevarsity.ca/> being broken on Google Chrome, so we are going to start there. This crash is not exactly my fault, but I expect most will be, so this series will truly focus on my adventures in crashing *The Varsity*.
+I was actually planning on starting this series with reflecting on those two crashes I mentioned earlier, but yesterday night I got a ping about <https://spine.thevarsity.ca/> being broken on Google Chrome, so we are going to start there. This crash is not exactly my fault, but I expect most will be, so this series will truly focus on my adventures in crashing _The Varsity_.
 
 ## The crash
 
 **ERR_SSL_PROTOCOL_ERROR**
 
-Let me give some context about *The Varsity*’s engineering. While there has been some great work from the team, it built its infrastructure like an engineering team — this is one of the things I wanted to change. So, *The Varsity* did not have any uptime monitoring, and I use Firefox as my main browser, so I did not catch the error and don’t know exactly when it occurred.
+Let me give some context about _The Varsity_’s engineering. While there has been some great work from the team, it built its infrastructure like an engineering team — this is one of the things I wanted to change. So, _The Varsity_ did not have any uptime monitoring, and I use Firefox as my main browser, so I did not catch the error and don’t know exactly when it occurred.
 
 ### Interesting things about this crash
 
@@ -29,7 +30,7 @@ I didn’t really care to check IE, also, I won’t because it’s not worth the
 
 This crash happened at 2:00 am for me, so it was pretty late, but as the only back-end web developer I had to work through fixing the error.
 
-As I had only joined about two months ago, and *The Varsity* has a huge legacy code base from over the last 15 years, I am not fully comfortable with the entire code base. But, from my previous experience crashing the entire site I had picked up how to debug some **nginx** errors.
+As I had only joined about two months ago, and _The Varsity_ has a huge legacy code base from over the last 15 years, I am not fully comfortable with the entire code base. But, from my previous experience crashing the entire site I had picked up how to debug some **nginx** errors.
 
 So, I went through the standard googling of a bunch of errors and experimenting with the code base. I don’t want to spend much time talking about that because the final way I solved the issue is far more interesting. Though, here are some semi-related issues I found: [\[1]](https://community.letsencrypt.org/t/err-ssl-protocol-error-only-in-chrome-and-mobile-browser/72014) and [\[2]](https://community.letsencrypt.org/t/nginx-err-ssl-protocol-error/4143).
 
@@ -41,27 +42,29 @@ During the debug session, I was talking to a friend about this issue and we were
 
 All credit goes to my friend, [@itsarnavb](https://twitter.com/itsarnavb), for the idea to debug with GPT-3; we literally asked it the question and it helped us diagnose the issue. I want to walk through parts of that conversation.
 
+[GPT-3](https://www.youtube.com/watch?v=_8yVOC4ciXc) is OpenAI's newest natural language model. This model follows an architecture of a transformer, that is in plain english, you give it text and it will write the next word out. The text you give it, is called a prompt, in the following conversation all prompts are marked in bold **_like this_**, the AI will generate its response according to its prompt. With models like GPT-3, you can also change the machine's response, and have it regenerate with a new context. We used this for diagnostic purposes, but it is not highlighted in the conversation below.
+
 > A conversation with artificial intelligence
 
-***The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.***
+**_The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly._**
 
-***Human: Hello, who are you?***
+**_Human: Hello, who are you?_**
 
-***AI: I am an AI created by OpenAI. How can I help you today?***
+**_AI: I am an AI created by OpenAI. How can I help you today?_**
 
-***Human: Can you help me debug an SSL configuration error?***
+**_Human: Can you help me debug an SSL configuration error?_**
 
 AI: Sure. What’s wrong?
 
-***Human: When I open the website, it shows ‘ERR_SSL_PROTOCOL_ERROR’***
+**_Human: When I open the website, it shows ‘ERR_SSL_PROTOCOL_ERROR’_**
 
 AI: The server’s TLS configuration does not support the protocol you are trying to use.
 
-***Human: How do I fix that?***
+**_Human: How do I fix that?_**
 
 AI: Check your server‘s configuration. Make sure that TLSv1.0 or TLSv1.1 is supported.
 
-***Human: How do I check that?***
+**_Human: How do I check that?_**
 
 AI: For Ubuntu systems, this can be done by running the command:
 
@@ -71,7 +74,7 @@ openssl s_client -connect example.com:443 .
 
 AI: Make sure to replace example.com:443 with your server’s IP address.
 
-***Human: Okay, this is what it returned:***
+**_Human: Okay, this is what it returned:_**
 
 ````zsh
 ---------------------------
@@ -131,19 +134,19 @@ closed
 
 AI: I think that the issue is caused by the server being behind an HTTP proxy, not an HTTPS proxy.
 
-***Human: Can you elaborate? I’m using nginx***
+**_Human: Can you elaborate? I’m using nginx_**
 
 AI: There are two ways to solve this problem. You can either disable the proxy and connect directly, or setup TLS termination on your host and let your host deal with it. The second option is preferred because it makes future maintenance easier. I can write a tutorial explaining how to do that if you want.
 
-***Human: Awesome! Go ahead***
+**_Human: Awesome! Go ahead_**
 
 AI: Just for clarification, we are currently logged in to your server, yes?
 
-***Human: Yes***
+**_Human: Yes_**
 
 AI: Okay, the first step is to use your distribution’s package manager to install stunnel. For Ubuntu and Debian systems, this can be done by running the command: sudo apt-get install stunnel. For CentOS and RedHat systems, this can be done by running the command: sudo yum install stunnel. Please replace apt-get with yum if you are using one of these.
 
-***Human: Great, what do we do with stunnel?***
+**_Human: Great, what do we do with stunnel?_**
 
 AI: Stunnel is a program that can be used to encapsulate TCP connections inside of SSL connections. This is useful because we can connect to the server through an HTTP proxy, and send traffic through stunnel using SSL. This is known as TLS termination. Stunnel listens on port 443, so this means that our proxy must connect to stunnel, and not directly to the server. Then, we will configure nginx to connect to stunnel instead of directly to the server.
 
@@ -169,10 +172,10 @@ So, this crash immediately brought up the need for real-time monitoring. Realizi
 
 A few of them are linked below. (Some of these pages might expire with trials ending.)
 
-* Apex Ping, http://status.ping.apex.sh/ffec0775-28fa-4b12-b44c-d2617700578b
-* Fresh Ping https://statuspage.freshping.io/46090-TheVarsityPublications
-* Uptime Robot https://stats.uptimerobot.com/E6LKNcWg40
-* Uptime.com https://uptime.com/s/varsity
+- [Apex Ping](http://status.ping.apex.sh/ffec0775-28fa-4b12-b44c-d2617700578b)
+- [Fresh Ping](https://statuspage.freshping.io/46090-TheVarsityPublications)
+- [Uptime Robot](https://stats.uptimerobot.com/E6LKNcWg40)
+- [Uptime.com](https://uptime.com/s/varsity)
 
 ## Conclusion
 
@@ -180,4 +183,4 @@ I am was definitely not expecting to make the first post about this, but I guess
 
 This bug definitely wasn’t something fun to debug yesterday, but diagnosing it with GPT-3 was amazing, and it was such a relief to solve the issue.
 
-Here are more random snippets of my conversation with GPT-3 about this: [here](https://gist.github.com/CryogenicPlanet/81570ac097d42b35ee206de9bf3db02c) or https://gist.github.com/CryogenicPlanet/81570ac097d42b35ee206de9bf3db02c
+Here are more random snippets of my conversation with GPT-3 about this: [here](https://gist.github.com/CryogenicPlanet/81570ac097d42b35ee206de9bf3db02c)
