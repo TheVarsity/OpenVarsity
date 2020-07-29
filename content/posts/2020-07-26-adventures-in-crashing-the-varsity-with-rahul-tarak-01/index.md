@@ -32,7 +32,7 @@ This crash happened at 2:00 am for me, so it was pretty late, but as the only ba
 
 As I had only joined about two months ago, and _The Varsity_ has a huge legacy code base from over the last 15 years, I am not fully comfortable with the entire code base. But, from my previous experience crashing the entire site I had picked up how to debug some **nginx** errors.
 
-So, I went through the standard googling of a bunch of errors and experimenting with the code base. I don’t want to spend much time talking about that because the final way I solved the issue is far more interesting. Though, here are some semi-related issues I found: [\[1]](https://community.letsencrypt.org/t/err-ssl-protocol-error-only-in-chrome-and-mobile-browser/72014) and [\[2]](https://community.letsencrypt.org/t/nginx-err-ssl-protocol-error/4143).
+So, I went through the standard googling of a bunch of errors and experimenting with the code base. I don’t want to spend much time talking about that because the final way I solved the issue is far more interesting. Though, here are some semi-related issues I found: [[1]](https://community.letsencrypt.org/t/err-ssl-protocol-error-only-in-chrome-and-mobile-browser/72014) and [[2]](https://community.letsencrypt.org/t/nginx-err-ssl-protocol-error/4143).
 
 None of these solutions really helped, but this felt like one of those DNS errors that would just go away, so, after working through the night till about 8:00 am with no results, I crashed.
 
