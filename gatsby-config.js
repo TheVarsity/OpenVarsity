@@ -39,7 +39,7 @@ module.exports = {
         url: `https://www.linkedin.com/company/varsity-publications-inc./`,
       },
       {
-        name: `url`,
+        name: `varsity`,
         url: `https://thevarsity.ca/`,
       },
     ],

@@ -5,6 +5,7 @@ import Icons from '@icons';
 import mediaqueries from '@styles/media';
 
 import VarsitySocialIcon from "../../../../Custom/VarsitySocialIcon"
+import UrlIcon from "../../../../Custom/UrlIcon"
 
 interface SocialLinksProps {
   links: {
@@ -30,7 +31,8 @@ const icons = {
   patreon: Icons.Patreon,
   paypal: Icons.Paypal,
   digitalocean: Icons.DigitalOcean,
-  url: VarsitySocialIcon
+  varsity: VarsitySocialIcon,
+  url: UrlIcon
 };
 
 const getHostname = url => {
@@ -47,7 +49,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
     <>
       {links.map(option => {
         const name = option.name || getHostname(option.url);
-        const Icon = icons[name];
+        const Icon = icons[name] ? icons[name] : icons["url"];
         if (!Icon) {
           throw new Error(
             `unsupported social link name=${name} / url=${option.url}`,
