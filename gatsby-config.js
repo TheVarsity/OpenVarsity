@@ -8,6 +8,23 @@ module.exports = {
       heading: `Welcome to Open Varsity, An engineering blog.`,
       maxWidth: 652,
     },
+    footerLinks: [
+      {
+        name: "About Open Varsity",
+        url: "/What-is-Open-Varsity",
+        external: false,
+      },
+      // {
+      //   name: "Stats for Nerds",
+      //   url: "/stats",
+      //   external: false,
+      // },
+      {
+        name: "Varsity Status",
+        url: "https://status.thevarsity.ca/",
+        external: true,
+      },
+    ],
     social: [
       {
         name: `twitter`,
@@ -21,10 +38,10 @@ module.exports = {
         name: `linkedin`,
         url: `https://www.linkedin.com/company/varsity-publications-inc./`,
       },
-      // {
-      //   name: `url`,
-      //   url: `https://thevarsity.ca/`,
-      // },
+      {
+        name: `url`,
+        url: `https://thevarsity.ca/`,
+      },
     ],
   },
   plugins: [
