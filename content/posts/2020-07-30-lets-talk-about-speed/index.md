@@ -135,7 +135,7 @@ You can experiment yourself with very basic compression [here](https://jakearchi
 
 Unfortunately, The Varsity has 1000s of images over the last 20 years on our servers, and we couldn't possibly do this manually.
 
-I am still deliberating between Short Pixel and Ewww Image Optimizer, but an automatic tool that reduces the size of the image helps the overall performance of the website significantly.
+I am planning to use Short Pixel Image Optimizer, it can automatically optimize images and even generate WebP files. They also gave The Varsity 15,000 credits for being a NGO.
 
 The number of requests The Varsity handles plus the size of these images is what leads to the huge bandwidth on our servers.
 
