@@ -1,7 +1,7 @@
 ---
-title: Building Varsity's Student Handbook | Part 1
+title: Search on Static Sites | Building Varsity's Student Handbook Part 1
 author: Rahul Tarak
-date: "2020-09-19"
+date: '2020-09-19'
 excerpt: >-
   How we made a UofT's all digital freshmen student handbook for 2020. In this
   part, we will cover motivation, basic project setup and searching on a static
