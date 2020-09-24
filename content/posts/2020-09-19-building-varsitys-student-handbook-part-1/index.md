@@ -78,7 +78,7 @@ In this same vein, you could easily add more fields to index or pass more parame
 
 ## Setting up the search wrapper
 
-This would be the most basic setup for the search wrapper, but you would normally expect to find this on a navbar or something like that. Then obviously it would have more styling and be more complex. Our search wrapper is our navbar, which you can find here: <https://github.com/TheVarsity/Survival-Handbook/blob/bfc7417857d850e471036f1ddce0afe81977e294/src/components/Navbar.tsx#L64-L67>
+This would be the most basic setup for the search wrapper, but you would normally expect to find this on a navbar or something like that. Then obviously it would have more styling and be more complex. Our search wrapper is our navbar, which you can find [here ](<https://github.com/TheVarsity/Survival-Handbook/blob/bfc7417857d850e471036f1ddce0afe81977e294/src/components/Navbar.tsx#L64-L67>)
 
 ```jsx
 const SearchWrapper = () => {
