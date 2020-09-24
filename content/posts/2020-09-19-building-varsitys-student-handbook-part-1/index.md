@@ -1,29 +1,28 @@
 ---
-title: Search on Static Sites | Building Varsity's Student Handbook Part 1
+title: Search on Static Sites | Building The Varsity’s Student Handbook part 1
 author: Rahul Tarak
 date: '2020-09-19'
 excerpt: >-
-  How we made a UofT's all digital freshmen student handbook for 2020. In this
-  part, we will cover motivation, basic project setup and searching on a static
-  site.
+  How we made a U of T’s all digital first-year student handbook for 2020. In
+  this part, we will cover motivation, basic project setup, and searching on a
+  static site.
 hero: images/cover.png
 ---
+This is going to be a series of three or four posts talking about the more interesting things we did while making [handbook.thevarsity.ca](https://handbook.thevarsity.ca/). If you haven’t checked it out yet, I would highly recommend it; for starters, this series will make a lot more sense but also it is just full of really good articles and illustrations.
 
-This is going to be a series of 3 or 4 posts talking about the more interesting things we did while making [handbook.thevarsity.ca](https://handbook.thevarsity.ca/). If you haven't checked it out yet, I would highly recommend it for starters this series will make a lot more sense but also it is just full of really good articles and illustrations.
+For some context, this year as a result of COVID-19 the annual *Varsity* student handbook had to be shifted from a physical version to a digital medium. As the first digital handbook we definitely had some pain points but also a lot of opportunities to innovate on what had been done before.
 
-For some context, this year as a result of COVID the annual varsity student handbook had to be shifted from physical to a digital medium, as the first digital handbook we definitely had some pain points but also a lot of opportunities to innovate on what had been done before.
+At *The Varsity*, we use WordPress and Elementor and I am personally not a fan, and definitely planning to move away from them more and more through the coming year. But moving a huge site like thevarsity.ca with over 20 years of articles is very complicated; the handbook on the other hand gave us an opportunity for a fresh start.
 
-At the Varsity, we use WordPress and Elementor and I am personally not a fan, and definitely planning to move away from them more and more through the coming year. But moving a huge site like thevarsity.ca with over 20 years of articles is very complicated, the handbook on the other hand gave us an opportunity for a fresh start.
+At *The Varsity* Volume 141’s engineering team, we ♥ TS and are always looking to modernize our tech stack. For the handbook, we went with a very similar stack to Open Varsity with:
 
-At the Varsity 141's engineering team, we ♥ TS and are always looking to modernize our tech stack. For the handbook, we went with a very similar stack to Open Varsity with:
+* Gatsby
+* React
+* TS
+* Netlify CMS
+* Bulma
 
-- Gatsby
-- React
-- TS
-- Netlify CMS
-- Bulma
-
-You can start with same netlify starter template as us, here
+You can start with same netlify starter template as us, here:
 
 ```shell
 git clone https://github.com/matsuri-tech/gatsby-starter-netlify-cms
@@ -31,20 +30,20 @@ git clone https://github.com/matsuri-tech/gatsby-starter-netlify-cms
 
 This is a typescript version of the netlify starter template.
 
-I am not really planning to talk about the basic setup or creating basic articles but in this post rather I want to focus on a few main topics I've listed below
+I am not really planning to talk about the basic setup or creating basic articles but in this post rather I want to focus on a few main topics I’ve listed below.
 
-- Search on a static site
-- Custom React TS hooks
-- Animating lines on the frontpage
-- Specific image optimization with Gatsby Image
+* Search on a static site
+* Custom React TS hooks
+* Animating lines on the frontpage
+* Specific image optimization with Gatsby Image
 
 # Search on a static site
 
-I thought this would be a much more complicated problem then it really was, I had heard of things like angolia and such but I expected setting up search to be a tedious process. It really wasn't and I want to talk about how I did it
+I thought this would be a much more complicated problem then it really was. I had heard of things like Angolia and such, but I expected setting up search to be a tedious process. It really wasn’t and I want to talk about how I did it.
 
-We used **elasticlunr** search which you can find more about [here](https://www.gatsbyjs.com/plugins/@gatsby-contrib/gatsby-plugin-elasticlunr-search/)
+We used **elasticlunr** search, which you can find more about [here.](https://www.gatsbyjs.com/plugins/@gatsby-contrib/gatsby-plugin-elasticlunr-search/)
 
-To install the package use
+To install the package, use this.
 
 ```shell
 yarn install @gatsby-contrib/gatsby-plugin-elasticlunr-search
@@ -79,7 +78,7 @@ In this same vein, you could easily add more fields to index or pass more parame
 
 ## Setting up the search wrapper
 
-This would be the most basic setup for the search wrapper, but you would normally expect to find this on a navbar or something like that. Then obviously it would have more styling and be more complex. Our search wrapper is our navbar, which you can find <https://github.com/TheVarsity/Survival-Handbook/blob/bfc7417857d850e471036f1ddce0afe81977e294/src/components/Navbar.tsx#L64-L67>
+This would be the most basic setup for the search wrapper, but you would normally expect to find this on a navbar or something like that. Then obviously it would have more styling and be more complex. Our search wrapper is our navbar, which you can find here: <https://github.com/TheVarsity/Survival-Handbook/blob/bfc7417857d850e471036f1ddce0afe81977e294/src/components/Navbar.tsx#L64-L67>
 
 ```jsx
 const SearchWrapper = () => {
@@ -102,11 +101,11 @@ const SearchWrapper = () => {
 
 ## Setting up the search bar
 
-**Note: to the best of my knowledge elasticlunr does not have typescript type definitions and hence you won't get proper type support on it**
+**Note: to the best of my knowledge elasticlunr does not have typescript type definitions and hence you won’t get proper type support on it.**
 
-Here I am going to directly show you our search page, as it has the linking and everything built it. Feel free to restyle it however you want, this project was using styled-jsx but there is no need for this.
+Here I am going to directly show you our search page, as it has the linking and everything built in. Feel free to restyle it however you want. This project was using styled-jsx but there is no need for this.
 
-Similarly, we can also ignore the isMobile and toggle as they are meant to change the styling of the element depending on state changes
+Similarly, we can also ignore the isMobile and toggle as they are meant to change the styling of the element depending on state changes.
 
 ```jsx
 import { Index } from "elasticlunr";
@@ -220,12 +219,12 @@ const Search: React.FC<SearchProps> = ({ searchIndex, toggle }) => {
 export default Search;
 ```
 
-And that is about it, we now have a search set up on a static site.
+And that is about it — we now have a search set up on a static site.
 
 # Conclusion
 
-Static sites are genuinely amazing they provide so many features and a lot of flexibility to developers while having absolutely amazing performance for end-users.
+Static sites are genuinely amazing; they provide so many features and a lot of flexibility to developers while having absolutely amazing performance for end-users.
 
-While there are inherent drawbacks for certain use cases with using static sites, they are really good at what they do and more and more, we see that they are able to have features you'd only expect in non-static sites like powerful searching.
+While there are inherent drawbacks for certain use cases with using static sites, they are really good at what they do and more and more, we are seeing that they are able to have features you’d only expect in non-static sites, such as powerful searching.
 
-In the next part of this series, I will likely be covering custom react hooks and showing off a varsity package with typescript react hooks, which will be expanded upon through the year as we create more hooks for our own projects.
+In the next part of this series, I will likely be covering custom react hooks and showing off a *Varsity* package with typescript react hooks, which will be expanded upon through the year as we create more hooks for our own projects.
