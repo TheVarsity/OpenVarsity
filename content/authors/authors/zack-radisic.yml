@@ -1,0 +1,9 @@
+name: Zack Radisic
+bio: >-
+  Hi, I'm a web developer at The Varsity. I like building things with Go +
+  TypeScript.
+featured: false
+avatar: avatars/zack.jpg
+social:
+  - 'https://twitter.com/zackinsomnia'
+  - 'https://github.com/zackradisic'
